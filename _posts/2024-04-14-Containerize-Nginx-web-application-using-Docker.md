@@ -89,7 +89,7 @@ The `ENTRYPOINT` instruction lets us to specify the command which we want to exe
 
 Example:
 
-<img width="995" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/cb4be2ea-fab5-4a32-806d-58ceac44b7f7">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-14-Containerize-Nginx-web-application-using-Docker/image1.png">
 
 Create the Nginx configuration file named `example.conf` with contents below. Please make sure that the `example.conf` and `examplefile.dockerfile` are in same directory.
 
@@ -133,7 +133,7 @@ docker build -f examplefile.dockerfile -t exampleimage .
 
 Example:
 
-<img width="1180" alt="image-1" src="https://github.com/hisriram96/blog/assets/56336513/12748bf8-eda2-445e-882c-9b9ea034721c">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-14-Containerize-Nginx-web-application-using-Docker/image2.png">
 
 ### Run a Docker container
 
@@ -149,7 +149,7 @@ Execute the `docker ps` command to verify if the container starts without any is
 
 Example:
 
-<img width="1175" alt="image-2" src="https://github.com/hisriram96/blog/assets/56336513/21396ac1-b571-4e99-9c62-eb833d5c7107">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-14-Containerize-Nginx-web-application-using-Docker/image3.png">
 
 ## Verify accessing the Nginx
 
@@ -160,9 +160,9 @@ curl -v http://www.example.com --resolve www.example.com:80:127.0.0.1
 curl -kv https://www.example.com --resolve www.example.com:443:127.0.0.1
 ```
 
-<img width="599" alt="image-3" src="https://github.com/hisriram96/blog/assets/56336513/1d1f9262-52aa-4a9f-a06c-2cad2a80afe7">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-14-Containerize-Nginx-web-application-using-Docker/image4.png">
 
-<img width="587" alt="image-4" src="https://github.com/hisriram96/blog/assets/56336513/00b0301f-f071-43b1-9333-f12c45eb5bd3">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-14-Containerize-Nginx-web-application-using-Docker/image5.png">
 
 ## Push image to Docker Hub
 
@@ -176,13 +176,13 @@ We need to [signup in Docker Hub](https://hub.docker.com/signup) to create our [
 
 Example:
 
-<img width="996" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/f6cbf6ad-d8b2-4b0c-9b46-68bc16353fb6">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-14-Containerize-Nginx-web-application-using-Docker/image6.png">
 
 After creating the repository in Docker Hub, we will push our image by following the steps below.
 
 1. Login to Docker Hub using `docker login` command.
 
-   <img width="1200" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/3b732d05-e340-4197-9a9e-7e379a1bddb1">
+   <img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-14-Containerize-Nginx-web-application-using-Docker/image7.png">
 
 2. Update the tag of the image with username and name of the repository using `docker tag` command. You could also specify the tag name. The tag name indicates the specific version of the image. If the tag name is not specified then Docker will use the default tag _latest_. In our example, we have changed the image name from exampleimage to examplerepo with tag 1.0.0.
 
@@ -190,7 +190,7 @@ After creating the repository in Docker Hub, we will push our image by following
    docker tag exampleimage <username>/examplerepo:1.0.0
    ```
 
-   <img width="497" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/1b37afbb-0a27-4db7-80f3-1cb2752686b2">
+   <img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-14-Containerize-Nginx-web-application-using-Docker/image8.png">
 
 3. Execute the `docker push` command to push the image to Docker Hub.
 
@@ -198,7 +198,7 @@ After creating the repository in Docker Hub, we will push our image by following
    docker push <username>/examplerepo:1.0.0
    ```
 
-   <img width="638" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/ab893ab1-9604-4b97-b5c6-055816471659">
+   <img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-14-Containerize-Nginx-web-application-using-Docker/image9.png">
 
 We have now successfully pushed our image to Docker Hub.
 
@@ -206,11 +206,11 @@ We have now successfully pushed our image to Docker Hub.
 
 We could view the running containers in our local system using the `docker ps` command. If the command does return any output then the containers are not running and we could use `docker ps -a` command to view all containers.
 
-<img width="1199" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/ef7802e3-255b-4dfa-90ab-14600610f8ab">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-14-Containerize-Nginx-web-application-using-Docker/image10.png">
 
 We could view the images using `docker images` command.
 
-<img width="495" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/c493c92a-b357-455d-b451-6d114a74729e">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-14-Containerize-Nginx-web-application-using-Docker/image11.png">
 
 > It is worth noting that updating a tag in existing image does not change image ID for the newly tagged image.
 
@@ -218,11 +218,11 @@ We could remove the container using the `docker rm <containername or containerid
 
 We could remove an image using the command `docker rmi <imagename:tagname or imageid>`. If there is any container using that image then the command would fail. We would need to remove the container created using that image first then remove the image.
 
-<img width="698" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/ad2f671b-9042-4729-8479-f2dcc09f495f">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-14-Containerize-Nginx-web-application-using-Docker/image12.png">
 
 You could remove the unsued data which stored in cache by Docker when building images using the `docker system prune` command.
 
-<img width="348" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/10682f7d-44e0-4f05-9fad-3df47748ee08">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-14-Containerize-Nginx-web-application-using-Docker/image13.png">
 
 ## Pull image from Docker Hub
 
@@ -234,7 +234,7 @@ We could pull image from Docker Hub using the `docker pull` command. We would pu
 docker pull <username>/examplerepo:1.0.0
 ```
 
-<img width="529" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/eaa8cbab-7f52-48ab-9da4-cc368733b2f8">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-14-Containerize-Nginx-web-application-using-Docker/image14.png">
 
 We could also run a container by using the image from the Docker Hub using the `docker run` command.
 
@@ -242,6 +242,8 @@ We could also run a container by using the image from the Docker Hub using the `
 docker run -d <username>/examplerepo:1.0.0
 ```
 
-<img width="909" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/390ab132-b378-4689-8965-fdb015ab9459">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-14-Containerize-Nginx-web-application-using-Docker/image15.png">
 
 > Note that running containers from a container registry like Docker Hub does `docker image pull` first and then run the container.
+
+<link rel="alternate" type="application/rss+xml"  href="{{ site.url }}/feed.xml" title="{{ site.title }}">
