@@ -38,14 +38,13 @@ sudo sysctl -p
 
 Example:
 
-<img width="724" alt="image" src="https://github.com/hisriram96/hisriram96.github.io/assets/56336513/9a2080c1-957a-4ef6-a455-f04e3899cee0">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/1fc3beec3c7d26552ab6f5cdadbc162949118a11/_pictures/_images_2023-12-13-strongSwan-IPsec/image1.png">
 
 Since we deployed Azure VMs, we must also enable IP forwarding in the vNIC of the Azure VMs.
 
 Please note that enabling IP forwarding in the vNIC of the Azure VM is an additional step as it does not enable IP forwarding in the guest OS so we still need to enable IP forwarding in Ubuntu OS.
 
-<img width="1184" alt="image" src="https://github.com/hisriram96/hisriram96.github.io/assets/56336513/056e8a7a-7d29-47d3-a540-95a1bfca7e1c">
-
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/1fc3beec3c7d26552ab6f5cdadbc162949118a11/_pictures/_images_2023-12-13-strongSwan-IPsec/image2.png">
 
 ## Configuring strongSwan
 
@@ -62,7 +61,7 @@ With our network infrastructure ready and IP forwarding enabled in the OS and in
 
    Example:
    
-   <img width="725" alt="image" src="https://github.com/hisriram96/hisriram96.github.io/assets/56336513/8a52568b-694a-4b9c-90bc-3aa6b84927d7">
+   <img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/1fc3beec3c7d26552ab6f5cdadbc162949118a11/_pictures/_images_2023-12-13-strongSwan-IPsec/image3.png">
 
 3. Configure IPsec VPN by editing the ipsec.conf file.
 
@@ -99,8 +98,8 @@ With our network infrastructure ready and IP forwarding enabled in the OS and in
 
    Example:
 
-   <img width="287" alt="image" src="https://github.com/hisriram96/hisriram96.github.io/assets/56336513/708c0939-4f6e-4236-9ea7-d5b3c2fa4a35">
-   
+   <img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/1fc3beec3c7d26552ab6f5cdadbc162949118a11/_pictures/_images_2023-12-13-strongSwan-IPsec/image4.png">
+
 5. Configure pre-shared key for VPN in ipsec.secrets file.
 
    ```bash
@@ -117,7 +116,7 @@ With our network infrastructure ready and IP forwarding enabled in the OS and in
 
    Example:
 
-   <img width="328" alt="image" src="https://github.com/hisriram96/hisriram96.github.io/assets/56336513/f9f23e3b-4bc3-401b-b66a-45b83cbab3f9">
+   <img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/1fc3beec3c7d26552ab6f5cdadbc162949118a11/_pictures/_images_2023-12-13-strongSwan-IPsec/image5.png">
 
 7. Restart the strongSwan process.
 
@@ -128,7 +127,7 @@ With our network infrastructure ready and IP forwarding enabled in the OS and in
 
    Example:
 
-   <img width="901" alt="image" src="https://github.com/hisriram96/hisriram96.github.io/assets/56336513/a604f765-08a1-4a44-8904-0219863772e3">
+   <img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/1fc3beec3c7d26552ab6f5cdadbc162949118a11/_pictures/_images_2023-12-13-strongSwan-IPsec/image6.png">
 
 ## Verification of IPsec
 
