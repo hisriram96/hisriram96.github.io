@@ -18,7 +18,7 @@ We need to have [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-
 
 Otherwise, deploy an Azure VM with Managed Identitiy assigned to Contributor role scoped to the Resource Group in which ACR and ACI will be provisioned.
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhisriram96%2Fblog%2Fmain%2F_arm-templates%2Fazure-virtual-machine-ubuntu-with-identity-and-docker-preinstallation.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhisriram96%2Fhisriram96.github.io%2Frefs%2Fheads%2Fmain%2F_arm-templates%2Fazure-virtual-machine-ubuntu-with-identity-and-docker-preinstallation.json)
 
 ## Create an ACR
 
@@ -30,7 +30,7 @@ az login --identitiy -u "<Resource ID of Managed Idenitity>"
 
 Example:
 
-<img width="1200" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/c9f3e59e-1099-467d-9a9a-0cd4b6774cd8">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-18-Deploy-Nginx-web-application-on-ACI/image1.png">
 
 You could execute `az account set --subscription "<subscription ID>"` command in case there are multiple subscriptions.
 
@@ -42,7 +42,7 @@ az acr create -n "<name of ACR>" -g "<resource group>" --sku Basic
 
 Example:
 
-<img width="779" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/2108a6fb-7016-4bd9-8a61-c58b9b80063d">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-18-Deploy-Nginx-web-application-on-ACI/image2.png">
 
 ## Build an image using Azure CLI
 
@@ -55,7 +55,7 @@ curl -O https://raw.githubusercontent.com/hisriram96/blog/main/_docker/examplefi
 curl -O https://raw.githubusercontent.com/hisriram96/blog/main/_docker/example.conf
 ```
 
-<img width="786" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/8c8484a3-b1ad-4257-824f-1e94716770fd">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-18-Deploy-Nginx-web-application-on-ACI/image3.png">
 
 We could execute the following command to build an image. This command builds image in the ACR and in the local system.
 
@@ -82,6 +82,8 @@ curl -v http://www.example.com --resolve www.example.com:80:127.0.0.1
 curl -kv https://www.example.com --resolve www.example.com:443:127.0.0.1
 ```
 
-<img width="624" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/f17f6ba6-9b2c-4f51-b12c-1b9c30c4c298">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-18-Deploy-Nginx-web-application-on-ACI/image4.png">
 
-<img width="586" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/b2bbea3f-ff0b-4ea8-8afa-340ee093eb41">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-18-Deploy-Nginx-web-application-on-ACI/image5.png">
+
+<link rel="alternate" type="application/rss+xml"  href="{{ site.url }}/feed.xml" title="{{ site.title }}">
