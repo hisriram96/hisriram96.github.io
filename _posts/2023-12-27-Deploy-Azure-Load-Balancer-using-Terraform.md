@@ -45,7 +45,7 @@ This is how our architecture will look after the deployment is completed.
 
    <pre id="code1"></pre>
    <script>
-     fetch('https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/main/_terraform-scripts/azure-public-load-balancer-lab/providers.tf')
+     fetch('https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_terraform-scripts/azure-public-load-balancer-lab/providers.tf')
        .then(response => response.text())
        .then(text => document.getElementById('code1').textContent = text);
    </script>
@@ -54,7 +54,7 @@ This is how our architecture will look after the deployment is completed.
 
    <pre id="code2"></pre>
    <script>
-     fetch('https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/main/_terraform-scripts/azure-public-load-balancer-lab/variables.tf')
+     fetch('https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_terraform-scripts/azure-public-load-balancer-lab/variables.tf')
        .then(response => response.text())
        .then(text => document.getElementById('code2').textContent = text);
    </script>
@@ -63,7 +63,7 @@ This is how our architecture will look after the deployment is completed.
 
    <pre id="code3"></pre>
    <script>
-     fetch('https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/main/_terraform-scripts/azure-public-load-balancer-lab/main.tf')
+     fetch('https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_terraform-scripts/azure-public-load-balancer-lab/main.tf')
        .then(response => response.text())
        .then(text => document.getElementById('code3').textContent = text);
    </script>
@@ -72,7 +72,7 @@ This is how our architecture will look after the deployment is completed.
 
    <pre id="code4"></pre>
    <script>
-     fetch('https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/main/_terraform-scripts/azure-public-load-balancer-lab/outputs.tf')
+     fetch('https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_terraform-scripts/azure-public-load-balancer-lab/outputs.tf')
        .then(response => response.text())
        .then(text => document.getElementById('code4').textContent = text);
    </script>
@@ -130,7 +130,7 @@ This is how our architecture will look after the deployment is completed.
 
    <pre id="code5"></pre>
    <script>
-     fetch('https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/main/_terraform-scripts/azure_internal-load-balancer-lab/providers.tf')
+     fetch('https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_terraform-scripts/azure_internal-load-balancer-lab/providers.tf')
        .then(response => response.text())
        .then(text => document.getElementById('code5').textContent = text);
    </script>
@@ -139,7 +139,7 @@ This is how our architecture will look after the deployment is completed.
 
    <pre id="code6"></pre>
    <script>
-     fetch('https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/main/_terraform-scripts/azure_internal-load-balancer-lab/variables.tf')
+     fetch('https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_terraform-scripts/azure_internal-load-balancer-lab/variables.tf')
        .then(response => response.text())
        .then(text => document.getElementById('code6').textContent = text);
    </script>
@@ -148,7 +148,7 @@ This is how our architecture will look after the deployment is completed.
 
    <pre id="code7"></pre>
    <script>
-     fetch('https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/main/_terraform-scripts/azure_internal-load-balancer-lab/main.tf')
+     fetch('https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_terraform-scripts/azure_internal-load-balancer-lab/main.tf')
        .then(response => response.text())
        .then(text => document.getElementById('code7').textContent = text);
    </script>
@@ -157,7 +157,7 @@ This is how our architecture will look after the deployment is completed.
 
    <pre id="code8"></pre>
    <script>
-     fetch('https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/main/_terraform-scripts/azure_internal-load-balancer-lab/outputs.tf')
+     fetch('https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_terraform-scripts/azure_internal-load-balancer-lab/outputs.tf')
        .then(response => response.text())
        .then(text => document.getElementById('code8').textContent = text);
    </script>
@@ -184,7 +184,7 @@ This is how our architecture will look after the deployment is completed.
 
 Since frontend IP of an Internal Load Balancer is private IP, you cannot connect to it from internet. Connect to the VM which is not a backend pool member using SSH and verify if you could access our web page using the private IP displayed in the output ```bash apply``` command.
 
-<img width="269" alt="image" src="https://github.com/hisriram96/hisriram96.github.io/assets/56336513/e401b140-a8ce-4064-a096-bf6b8ea0ce2e">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2023-12-27-Deploy-Azure-Load-Balancer-using-Terraform/image1.png">
 
 ## Delete the resources
 
