@@ -6,7 +6,7 @@ author: Sriram H. Iyer
 
 ## Overview
 
-In a previous [blog](https://blog.hisriram.com/2024/01/14/Configure-web-server-in-Linux-VMs-using-Nginx.html), we had deployed an Ubuntu VM in Azure and configured it as a web server using [Nginx](https://nginx.org/en/).
+In a previous [blog](https://hisriram96.github.io/2024/01/14/Configure-web-server-in-Linux-VMs-using-Nginx.html), we had deployed an Ubuntu VM in Azure and configured it as a web server using [Nginx](https://nginx.org/en/).
 
 We also secured the web traffic by using SSL certificate.
 
@@ -16,15 +16,15 @@ We will configure Nginx so that our web server would authenticate client as well
 
 ## Pre-requisites
 
-This blog assumes that you already went through the previous [blog](https://blog.hisriram.com/2024/01/14/Configure-web-server-in-Linux-VMs-using-Nginx.html) and have basic knowledge of Nginx configuration as we would focus on configuring mTLS using Nginx and would touch suface of basic Nginx cofnigration for web server.
+This blog assumes that you already went through the previous [blog](https://hisriram96.github.io/2024/01/14/Configure-web-server-in-Linux-VMs-using-Nginx.html) and have basic knowledge of Nginx configuration as we would focus on configuring mTLS using Nginx and would touch suface of basic Nginx cofnigration for web server.
 
 ## Network Architecture
 
 We will deploy an Azure Virtual Machine with Ubuntu OS for configuring Nginx as web service.
 
-![Network Diagram](https://raw.githubusercontent.com/hisriram96/blog/2e6581f4269388ff1f98ee8d413dbebc4b4ae6e4/_pictures/azure-linux-virtual-machine-network-diagram.png)
+![Network Diagram](https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/azure-linux-virtual-machine-network-diagram.png)
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhisriram96%2Fblog%2Fmain%2F_arm-templates%2Fazure-virtual-machine-ubuntu-deployment.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhisriram96%2Fhisriram96.github.io%2Frefs%2Fheads%2Fmain%2F_arm-templates%2Fazure-virtual-machine-ubuntu-deployment.json)
 
 ## Generate SSL certificate
 
@@ -86,7 +86,7 @@ We will create a self-signed certificate chain with own custom root CA.
 
    Example:
 
-   <img width="721" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/39c1f863-78bd-4926-96d2-6402b007d7dd">
+   <img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-04-Configure-client-authentication-using-Nginx/image1.png">
 
 8. Install root certificate in the [CA trust store](https://ubuntu.com/server/docs/security-trust-store) of Ubuntu. 
 
@@ -98,7 +98,7 @@ We will create a self-signed certificate chain with own custom root CA.
 
    Example:
 
-   <img width="543" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/e4ee3891-9504-4f38-b936-9598928ba846">
+   <img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-04-Configure-client-authentication-using-Nginx/image2.png">
 
 ## Configure secure web service using Nginx
 
@@ -165,7 +165,7 @@ We will create a self-signed certificate chain with own custom root CA.
 
    Example:
 
-   <img width="401" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/9bd0d58b-4956-4391-8cee-eb7fd3967fa9">
+   <img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-04-Configure-client-authentication-using-Nginx/image3.png">
 
 6. Verify accessing the web site.
 
@@ -175,7 +175,7 @@ We will create a self-signed certificate chain with own custom root CA.
 
    Example:
 
-   <img width="623" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/0a342c30-b506-44be-9f3d-ff090d2640a4">
+   <img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-04-Configure-client-authentication-using-Nginx/image4.png">
 
 
 ## Create SSL certificate for client authentication
@@ -192,7 +192,7 @@ openssl x509 -req -sha256 -days 365 -in client.csr -signkey client.key -out clie
 
 Example:
 
-<img width="832" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/788d523b-d6cc-4e08-8a41-a273aea5f7e2">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-04-Configure-client-authentication-using-Nginx/image5.png">
 
 ## Configuring client authentication or mutual TLS in Nginx
 
@@ -236,7 +236,7 @@ server {
 
 Example:
 
-<img width="470" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/1c80f9f4-a81c-42d5-a635-519350a84185">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-04-Configure-client-authentication-using-Nginx/image6.png">
 
 ## Verify accessing the Nginx
 
