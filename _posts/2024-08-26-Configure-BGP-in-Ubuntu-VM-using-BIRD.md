@@ -20,9 +20,9 @@ Since we will be deploying resources in Azure, you would need an Azure subscript
 
 We would be deploying three VNets. Two VNets would have Virtual Network Gateways and the third VNet would have an Azure Route Server and Azure Bastion for accessing the VM securely.
 
-![architectural-diagram](https://raw.githubusercontent.com/hisriram96/blog/main/_pictures/Azure-deployment-strongSwan-and-BGP.png)
+![architectural-diagram](https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/Azure-deployment-strongSwan-and-BGP.png)
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhisriram96%2Fblog%2Fmain%2F_arm-templates%2FAzure-deployment-strongSwan-and-BGP.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhisriram96%2Fhisriram96.github.io%2Frefs%2Fheads%2Fmain%2F_arm-templates%2FAzure-deployment-strongSwan-and-BGP.json)
 
 ## Enable IP forwarding
 
@@ -38,7 +38,7 @@ sudo sysctl -p
 
 Example:
 
-<img width="857" alt="image" src="https://github.com/user-attachments/assets/37d1e4c1-4087-4029-9a44-73e3939b40d6">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image1.png">
 
 ## Installing strongSwan and BIRD
 
@@ -54,13 +54,13 @@ sudo apt-get install bird -y
 
 Example:
 
-<img width="920" alt="image" src="https://github.com/user-attachments/assets/2bae30a8-3c88-4ea8-9111-eb2dd7436a14">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image2.png">
 
 ## Configuring VPNs using StrongSwan to Virtual Network Gateways
 
 We need to establish VPNs to the Virtual Network Gateways so that we could configure BGP over these VPNs.
 
-The step by step process for configuring VPN using stringSwan is explained in this blog: [Configure IPsec VPN in an Ubuntu VM using strongSwan](https://blog.hisriram.com/2023/12/13/strongSwan-IPsec.html).
+The step by step process for configuring VPN using stringSwan is explained in this blog: [Configure IPsec VPN in an Ubuntu VM using strongSwan](https://hisriram96.github.io/2023/12/13/strongSwan-IPsec.html).
 
 We would configure two IPsec tunnels to the Virtual Network Gateway by editing the `ipsec.conf` file.
 
@@ -116,7 +116,7 @@ conn vnetgatewaytunnel2
 
 Example:
 
-<img width="347" alt="image" src="https://github.com/user-attachments/assets/d0348a44-f837-4fc3-b97f-2e5f1f6e3723">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image3.png">
 
 We would the configure pre-shared key for VPNs in `ipsec.secrets` file.
 
@@ -135,7 +135,7 @@ Please make sure that the same pre-shared key is configured on VM and both Virtu
 
 Example:
 
-<img width="367" alt="image" src="https://github.com/user-attachments/assets/af0f0b9e-87ab-4852-a307-ecbbaea3afdc">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image4.png">
 
 We would then restart the strongSwan process.
 
@@ -146,7 +146,7 @@ sudo systemctl status ipsec
 
 Example:
 
-<img width="1115" alt="image" src="https://github.com/user-attachments/assets/07b12324-c27b-47c0-b645-14247e68605c">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image5.png">
 
 We could verify if the VPNs are established to both Virtual Network Gateways by executing commands below:
 
@@ -156,7 +156,7 @@ sudo ipsec status
 
 Example:
 
-<img width="713" alt="image" src="https://github.com/user-attachments/assets/23b91bd1-cebf-4f8d-b058-34a76f61a2ea">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image6.png">
 
 ## Identifying the BGP peer IP addresses
 
@@ -166,7 +166,7 @@ The Virtual Network Gateways will have their own BGP peering addresses, visible 
 
 Example:
 
-<img width="587" alt="image" src="https://github.com/user-attachments/assets/96997dd3-86c4-4430-b247-f75a2c625c13">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image7.png">
 
 The Azure Route Server is a managed service that enables dynamic routing in the Virtual Network using BGP. We will establish BGP peerings from our VM and advertise routes learned from the Virtual Network Gateways to the Azure Route Server. The Azure Route Server will then propagate these routes within the Virtual Network, eliminating the need for user-defined routes on each subnet.
 
@@ -174,7 +174,7 @@ The Azure Route Server will have two instances, each with its own BGP peering IP
 
 Example:
 
-<img width="1185" alt="image" src="https://github.com/user-attachments/assets/b48955f3-6324-46ab-b8f5-fc6b63fdf790">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image8.png">
 
 ## Configuring BGP using BIRD
 
@@ -261,7 +261,7 @@ protocol bgp azurerouteserverinstancesecondary {
 
 Example:
 
-<img width="246" alt="image" src="https://github.com/user-attachments/assets/fb31caf9-b29e-4a5f-b596-fa5d669a7216">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image9.png">
 
 The BGP configuration in the BIRD configuration file `/etc/bird/bird.conf` is specified in the below code block.
 
@@ -368,7 +368,7 @@ sudo systemctl status bird
 
 Example:
 
-<img width="637" alt="image" src="https://github.com/user-attachments/assets/c00ecd51-048c-43f1-a1ec-5d6141ff3edd">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image10.png">
 
 ## Verifying BGP configuration
 
@@ -376,12 +376,14 @@ We could verify the BGP neighborship state by executing the command `sudo birdc 
 
 Example:
 
-<img width="548" alt="image" src="https://github.com/user-attachments/assets/0fcd7ab5-c39f-478b-918b-dfaab7a3b4db">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image11.png">
 
 We could verify routes learned by BGP by executing the command `show birdc show route`.
 
-<img width="657" alt="image" src="https://github.com/user-attachments/assets/4065d711-08f1-4584-9500-fd22d0099eb5">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image12.png">
 
 We could verify if the BGP learned routes are visible in the kernel by executing the command `ip route` or `netstat -rn`.
 
-<img width="526" alt="image" src="https://github.com/user-attachments/assets/c62fd991-54d5-4663-81ab-117020581ed6">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image13.png">
+
+<link rel="alternate" type="application/rss+xml"  href="{{ site.url }}/feed.xml" title="{{ site.title }}">
