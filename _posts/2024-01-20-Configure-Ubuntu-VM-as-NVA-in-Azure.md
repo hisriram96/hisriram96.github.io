@@ -25,9 +25,9 @@ You may skip dpeploying Azure Bastion as this is only for accessing the Virtual 
 
 This is how our deployment in Azure will look like.
 
-![Network Diagram](https://raw.githubusercontent.com/hisriram96/blog/main/_pictures/azure-nva-lab-two-virtual-machines-bastion-network-diagram.png)
+![Network Diagram](https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/azure-nva-lab-two-virtual-machines-bastion-network-diagram.png)
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhisriram96%2Fblog%2Fmain%2F_arm-templates%2Fazure-virtual-machine-ubuntu-nva-deployment.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhisriram96%2Fhisriram96.github.io%2Frefs%2Fheads%2Fmain%2F_arm-templates%2Fazure-virtual-machine-ubuntu-nva-deployment.json)
 
 ## Configure Ubuntu VM as NVA
 
@@ -39,7 +39,7 @@ We will configure our Ubuntu NVA for routing traffic received from trust NIC to 
 
 Since the untrust NIC is the primary NIC of the Ubuntu NVA, there is a default route automatically configured via untrust NIC in the guest OS by Azure. However, there is no default route via trust NIC as it is the secondary NIC. Wecan verify thi by viewing the route table by using `ip route` command.
 
-<img width="586" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/989daad5-63f2-492a-b136-6df04665d1a6">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-01-20-Configure-Ubuntu-VM-as-NVA-in-Azure/image1.png">
 
 ### Enable IP forwading in NIC
 
@@ -47,7 +47,7 @@ A NVA must be capable of routing traffic for which *IP forwarding* must be enabl
 
 We need to enable IP forwarding in the trust and untrust NICs of our Ubuntu NVA so that it could accept packets which are not destined to the NIC itself using Azure Portal as illustrated below.
 
-<img width="1193" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/2d58a7ae-4e38-44cf-9087-34d48c4efdcd">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-01-20-Configure-Ubuntu-VM-as-NVA-in-Azure/image2.png">
 
 Please note that enabling IP forwarding in the NICs does not enable IP forwarding in the guest OS so we still need to enable IP forwarding in Ubuntu OS.
 
@@ -61,7 +61,7 @@ sudo sysctl -p
 
 Example:
 
-<img width="864" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/089029a4-7da4-4053-a966-71bb928d30dd">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-01-20-Configure-Ubuntu-VM-as-NVA-in-Azure/image3.png">
 
 ### Configure SNAT using iptables
 
@@ -83,7 +83,7 @@ sudo iptables -t nat -A POSTROUTING -s 0/0 -o eth0 -j MASQUERADE
 
 Example:
 
-<img width="619" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/506de451-cc6c-4efb-8951-f86ee99dfbe6">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-01-20-Configure-Ubuntu-VM-as-NVA-in-Azure/image4.png">
 
 The configuration of iptables does not persist VM reboots. We would need to save the iptables configuration and run iptables at boot time.
 
@@ -95,13 +95,13 @@ We will login to both VM and NVA using Bastion. In case you did not deploy Basti
 
 Example:
 
-<img width="752" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/260c45e5-83c6-4487-9015-f136e35ebd55">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-01-20-Configure-Ubuntu-VM-as-NVA-in-Azure/image5.png">
 
 We will initiate a ping to 8.8.8.8 from the VM and perform a packet capture in the NVA using `tcpdump`.
 
 Output of ping fom the VM.
 
-<img width="467" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/c44617ab-fda5-450a-910d-42bea51da2ca">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-01-20-Configure-Ubuntu-VM-as-NVA-in-Azure/image6.png">
 
 Packet capture of the NVA.
 
@@ -109,6 +109,6 @@ Packet capture of the NVA.
 sudo tcpdump -nni any icmp
 ```
 
-<img width="1026" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/41cd141b-9634-459d-9764-f5bae19e2f69">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-01-20-Configure-Ubuntu-VM-as-NVA-in-Azure/image7.png">
 
 <link rel="alternate" type="application/rss+xml"  href="{{ site.url }}/feed.xml" title="{{ site.title }}">
