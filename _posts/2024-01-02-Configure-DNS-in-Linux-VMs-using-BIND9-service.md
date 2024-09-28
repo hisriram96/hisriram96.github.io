@@ -38,9 +38,9 @@ These primary and secondary DNS servers will host an internal DNS zone "example.
 
 We also have another VM configured as web server which we will try to access from another VM within the VNet using FQDN "example.internal".
 
-![Network Diagram](https://raw.githubusercontent.com/hisriram96/blog/main/_pictures/azure-dns-lab-two-virtual-machines-network-diagram.png)
+![Network Diagram](https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/azure-dns-lab-two-virtual-machines-network-diagram.png)
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhisriram96%2Fblog%2Fmain%2F_arm-templates%2Fazure-virtual-machine-ubuntu-dns-deployment.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhisriram96%2Fhisriram96.github.io%2Frefs%2Fheads%2Fmain%2F_arm-templates%2Fazure-virtual-machine-ubuntu-dns-deployment.json)
 
 ## Configure DNS server using BIND9
 
@@ -73,7 +73,7 @@ sudo apt-get install dnsutils
 
 Example:
 
-<img width="500" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/b3fff4df-a5c5-41cd-8592-37cae90446dc">
+<img src="https://github.com/hisriram96/hisriram96.github.io/blob/main/_pictures/_images_2024-01-02-Configure-DNS-in-Linux-VMs-using-BIND9-service/image1.png">
 
 ### Configure Azure VMs with Ubuntu OS as caching nameserver using BIND9
 
@@ -124,7 +124,7 @@ options {
 
 Example:
 
-<img width="994" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/22ed03e5-317b-47cf-b918-0995c58b0297">
+<img src="https://github.com/hisriram96/hisriram96.github.io/blob/main/_pictures/_images_2024-01-02-Configure-DNS-in-Linux-VMs-using-BIND9-service/image2.png">
 
 If the ```bind9utils``` was installed in previous step, then we could verify if our configuration of ```/etc/bind/named.conf.options``` has any errors by executing ```named-checkconf``` command.
 
@@ -136,7 +136,7 @@ The ```-p``` option prints the configuration if no errors were detected.
 
 Example:
 
-<img width="513" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/d850ad83-05ab-4713-a28f-814d796a7e5c">
+<img src="https://github.com/hisriram96/hisriram96.github.io/blob/main/_pictures/_images_2024-01-02-Configure-DNS-in-Linux-VMs-using-BIND9-service/image3.png">
 
 ### Configure Azure VMs with Ubuntu OS as authoritative nameserver using BIND9
 
@@ -181,7 +181,7 @@ ns2     IN      A       10.0.0.5
 
 Example:
 
-<img width="478" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/34d6c273-fdeb-4328-9951-82c5dbcba471">
+<img src="https://github.com/hisriram96/hisriram96.github.io/blob/main/_pictures/_images_2024-01-02-Configure-DNS-in-Linux-VMs-using-BIND9-service/image4.png">
 
 We will edit the ```/etc/bind/named.conf.local``` file to add our DNS zone ```example.internal``` to BIND9.
 
@@ -201,7 +201,7 @@ zone "example.internal" {
 
 Example:
 
-<img width="449" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/673351a0-a335-4ff3-9327-eec4f1611766">
+<img src="https://github.com/hisriram96/hisriram96.github.io/blob/main/_pictures/_images_2024-01-02-Configure-DNS-in-Linux-VMs-using-BIND9-service/image5.png">
 
 ##### Configuring Reverse Zone
 
@@ -241,7 +241,7 @@ $TTL    604800
 
 Example:
 
-<img width="464" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/2e133d37-1780-485d-9151-4589181842b2">
+<img src="https://github.com/hisriram96/hisriram96.github.io/blob/main/_pictures/_images_2024-01-02-Configure-DNS-in-Linux-VMs-using-BIND9-service/image6.png">
 
 We will edit the ```/etc/bind/named.conf.local``` file to add our reverse zone ```/etc/bind/0.0.10.in-addr.arpa``` to BIND9.
 
@@ -268,7 +268,7 @@ zone "0.0.10.in-addr.arpa" {
 
 Example:
 
-<img width="441" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/36a91b86-9d3e-459e-abd7-9783d2a95111">
+<img src="https://github.com/hisriram96/hisriram96.github.io/blob/main/_pictures/_images_2024-01-02-Configure-DNS-in-Linux-VMs-using-BIND9-service/image7.png">
 
 ##### Verify zone files
 
@@ -282,7 +282,7 @@ named-checkzone example.internal /etc/bind/zone.example.internal
 
 If everything is configured correctly then the output should be similar to:
 
-<img width="616" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/1df848bb-5b40-4210-9d27-964828e55ac7">
+<img src="https://github.com/hisriram96/hisriram96.github.io/blob/main/_pictures/_images_2024-01-02-Configure-DNS-in-Linux-VMs-using-BIND9-service/image8.png">
 
 Verify reverse zone file.
 
@@ -292,7 +292,7 @@ named-checkzone 0.0.10.in-addr.arpa /etc/bind/0.0.10.in-addr.arpa
 
 The output should be similar to:
 
-<img width="623" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/dc9d05f3-52b6-46e4-9f43-9cd7b4fdfe97">
+<img src="https://github.com/hisriram96/hisriram96.github.io/blob/main/_pictures/_images_2024-01-02-Configure-DNS-in-Linux-VMs-using-BIND9-service/image9.png">
 
 ##### Restart BIND9 service
 
@@ -346,7 +346,7 @@ zone "0.0.10.in-addr.arpa" {
 
 Example:
 
-<img width="459" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/a8292ecb-2881-4148-b6c4-291885dfc738">
+<img src="https://github.com/hisriram96/hisriram96.github.io/blob/main/_pictures/_images_2024-01-02-Configure-DNS-in-Linux-VMs-using-BIND9-service/image10.png">
 
 Restart the BIND9 service by executing ```sudo systemctl restart bind9.service``` command.
 
@@ -356,7 +356,7 @@ Now that we have configured both primary and secondary nameservers, we need to s
 
 The default DNS server provided by Azure is [168.63.129.16](https://learn.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16). Since we want to use our own DNS servers, we could specify the private IP addresses of our primary and secondary DNS servers in DNS settings of the Virtual Network.
 
-<img width="948" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/ecc0fd69-81aa-4a42-b1c7-27a9b4761879">
+<img src="https://github.com/hisriram96/hisriram96.github.io/blob/main/_pictures/_images_2024-01-02-Configure-DNS-in-Linux-VMs-using-BIND9-service/image11.png">
 
 Please note that you need to restart all other VMs after changing DNS servers in VNet so that the IP addresses of the DNS servers are propagared.
 
@@ -366,10 +366,10 @@ Execute ```dig``` or ```nslookup``` command to verify the name resolution of our
 
 Dig output:
 
-<img width="431" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/e37b5822-e5ff-442e-92c1-390f145fca07">
+<img src="https://github.com/hisriram96/hisriram96.github.io/blob/main/_pictures/_images_2024-01-02-Configure-DNS-in-Linux-VMs-using-BIND9-service/image12.png">
 
 Packet capture:
 
-<img width="1199" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/3fc77277-abf5-4b94-9a5a-ef9781557698">
+<img src="https://github.com/hisriram96/hisriram96.github.io/blob/main/_pictures/_images_2024-01-02-Configure-DNS-in-Linux-VMs-using-BIND9-service/image13.png">
 
 <link rel="alternate" type="application/rss+xml"  href="{{ site.url }}/feed.xml" title="{{ site.title }}">
