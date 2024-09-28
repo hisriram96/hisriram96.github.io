@@ -242,4 +242,6 @@ Example:
 
 We will use the `curl` utility with options `--cert` and `--key` to send the client certificate and private key respectively. In the verbose output, we could see the `Request CERT` message indicating request from server for verifying client's certificate.
 
-<img width="1200" alt="image" src="https://github.com/hisriram96/blog/assets/56336513/4288df8e-8aab-4c2a-b7ab-83f4f27c0abe">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-04-04-Configure-client-authentication-using-Nginx/image7.png">
+
+<link rel="alternate" type="application/rss+xml"  href="{{ site.url }}/feed.xml" title="{{ site.title }}">
