@@ -38,7 +38,7 @@ sudo sysctl -p
 
 Example:
 
-<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image1.png">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD/image1.png">
 
 ## Installing strongSwan and BIRD
 
@@ -54,7 +54,7 @@ sudo apt-get install bird -y
 
 Example:
 
-<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image2.png">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD/image2.png">
 
 ## Configuring VPNs using StrongSwan to Virtual Network Gateways
 
@@ -116,7 +116,7 @@ conn vnetgatewaytunnel2
 
 Example:
 
-<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image3.png">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD/image3.png">
 
 We would the configure pre-shared key for VPNs in `ipsec.secrets` file.
 
@@ -135,7 +135,7 @@ Please make sure that the same pre-shared key is configured on VM and both Virtu
 
 Example:
 
-<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image4.png">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD/image4.png">
 
 We would then restart the strongSwan process.
 
@@ -146,7 +146,7 @@ sudo systemctl status ipsec
 
 Example:
 
-<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image5.png">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD/image5.png">
 
 We could verify if the VPNs are established to both Virtual Network Gateways by executing commands below:
 
@@ -156,7 +156,7 @@ sudo ipsec status
 
 Example:
 
-<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image6.png">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD/image6.png">
 
 ## Identifying the BGP peer IP addresses
 
@@ -166,7 +166,7 @@ The Virtual Network Gateways will have their own BGP peering addresses, visible 
 
 Example:
 
-<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image7.png">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD/image7.png">
 
 The Azure Route Server is a managed service that enables dynamic routing in the Virtual Network using BGP. We will establish BGP peerings from our VM and advertise routes learned from the Virtual Network Gateways to the Azure Route Server. The Azure Route Server will then propagate these routes within the Virtual Network, eliminating the need for user-defined routes on each subnet.
 
@@ -174,7 +174,7 @@ The Azure Route Server will have two instances, each with its own BGP peering IP
 
 Example:
 
-<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image8.png">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD/image8.png">
 
 ## Configuring BGP using BIRD
 
@@ -261,7 +261,7 @@ protocol bgp azurerouteserverinstancesecondary {
 
 Example:
 
-<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image9.png">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD/image9.png">
 
 The BGP configuration in the BIRD configuration file `/etc/bird/bird.conf` is specified in the below code block.
 
@@ -368,7 +368,7 @@ sudo systemctl status bird
 
 Example:
 
-<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image10.png">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD/image10.png">
 
 ## Verifying BGP configuration
 
@@ -376,14 +376,14 @@ We could verify the BGP neighborship state by executing the command `sudo birdc 
 
 Example:
 
-<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image11.png">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD/image11.png">
 
 We could verify routes learned by BGP by executing the command `show birdc show route`.
 
-<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image12.png">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD/image12.png">
 
 We could verify if the BGP learned routes are visible in the kernel by executing the command `ip route` or `netstat -rn`.
 
-<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD./image13.png">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-08-26-Configure-BGP-in-Ubuntu-VM-using-BIRD/image13.png">
 
 <link rel="alternate" type="application/rss+xml"  href="{{ site.url }}/feed.xml" title="{{ site.title }}">
