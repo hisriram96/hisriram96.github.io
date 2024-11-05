@@ -211,7 +211,7 @@ curl -k https://www.example.com --resolve www.example.com:443:$publicip
 
 Example:
 
-<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-05-11-Configure-cloudinit-in-Azure-VM/image1.png">
+<img src="https://raw.githubusercontent.com/hisriram96/hisriram96.github.io/refs/heads/main/_pictures/_images_2024-11-05-Configure-cloudinit-in-Azure-VM/image1.png">
 
 We could debug any issues in `cloud-init` configuration of Azure VM by following this [public guidance](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/cloud-init-troubleshooting) from Azure.
 
